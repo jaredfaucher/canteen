@@ -103,3 +103,5 @@ env.sh
 
 # mypy
 .mypy_cache/
+
+.DS_STORE
