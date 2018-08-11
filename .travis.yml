@@ -1,0 +1,27 @@
+language: python
+
+python: 3.6
+
+addons:
+  - postgresql: "10.4"
+
+before_install:
+  - export DATABASE_URL=postgres://postgres@localhost/travisdb
+
+install: pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
+  - python manage.py migrate --noinput
+
+env:
+  - DJANGO=2.0.7
+
+script: python manage.py test
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: canteen-lunch
+  run: python manage.py migrate
+  on: master

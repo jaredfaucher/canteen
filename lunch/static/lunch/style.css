@@ -1,0 +1,86 @@
+body {
+  /* Margin bottom by footer height */
+  padding-top: 70px;
+  margin-bottom: 60px;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: #00A1BC;
+}
+
+.btn-primary {
+  background-color: #00A1BC;
+  border-color: #00A1BC;
+}
+
+.btn-primary:hover {
+  background-color: #0095af;
+  border-color: #0095af;
+}
+
+.btn-primary:disabled {
+  background-color: #70b5c1;
+  border-color: #70b5c1;
+}
+
+.btn-outline-primary {
+  border-color: #00A1BC;
+}
+
+a.btn-outline-primary {
+  color: #00A1BC;
+}
+
+.btn-outline-primary:hover {
+  border-color: #0095af;
+}
+
+a.btn-outline-primary:hover {
+  color: #0095af;
+}
+
+.dropdown-menu {
+  background-color: #00A1BC;
+}
+
+.clear_search {
+  position: fixed;
+  right: 35%;
+  z-index: 10;
+}
+
+@media (max-width: 767.98px) {
+  .clear_search {
+    right: 25px;
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+/* autoscroll on hover classes */
+.auto_scroll {
+  overflow-y: hidden;
+}
+
+.auto_scroll:hover {
+  overflow-y: auto;
+}
+
+.auto_scroll .auto_scroll_elt {
+  padding-right: 15px;
+}
+
+.auto_scroll:hover .auto_scroll_elt {
+  padding-right: 0px;
+}
+
+/*# sourceMappingURL=style.css.map */

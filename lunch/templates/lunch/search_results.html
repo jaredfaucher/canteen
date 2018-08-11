@@ -1,0 +1,47 @@
+      <div id="search_container">
+        {% if restaurants %}
+        <div class="container mt-2 mr-2">
+          <div class="float-right clear_search">
+            <a class="btn btn-outline-primary bg-white" role="button" href="#">clear results</a>
+          </div>
+        </div>
+        {% endif %} 
+        <div id="search_results" class="row">
+          {% if restaurants %}
+          {% for restaurant in restaurants %}
+          <div class="card my-4 mx-4">
+              <input type="hidden" id="{{restaurant.id}}" class="restaurant_id" />
+              <div class="row">
+                <div class="col-md-6">
+                  <img class="card-img-top ml-md-4 my-md-4 img-responsive" src="{{restaurant.image_url}}" alt="Card image cap">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h2 class="card-title">{{restaurant.name}}</h2>
+                    <p class="card-text">{{restaurant.location.address1}},
+                    {% if restuarant.location.address2 %}
+                     {{restaurant.location.address2}}, 
+                    {% endif %}
+                    {{restaurant.location.city}}, {{restaurant.location.state}}</p>
+                    <p class="card-text">{{restaurant.display_phone}} - {{restaurant.price}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-muted">
+                <div class="row">
+                  <div class="col">
+                    <a target="_blank" href="{{restaurant.url}}" class="d-none d-md-block">Find out more<i class="fab fa-yelp fa-2x ml-2"></i></a>
+                    <a target="_blank" href="{{restaurant.url}}" class="d-block d-md-none"><i class="fab fa-yelp fa-2x ml-2"></i></a>
+                  </div>
+                  <div class="col">
+                    <a data-restaurant="{{restaurant.id}}" href="#" class="btn btn-primary float-right">Create Event</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          <h1 class="my-4 ml-4">Search for restaurant to begin</h1>
+          {% endif %}
+        </div>
+      </div>

@@ -1,0 +1,29 @@
+{% extends "lunch/base.html" %}
+{% load static %}
+
+{% block title %}
+  Canteen - Find Colleagues
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'lunch/find_colleagues.js' %}"></script>
+{% endblock %}
+{% block header %}
+    {% include "lunch/header.html" %}
+{% endblock %}
+{% block body %}
+<main class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% include "lunch/colleague_search_results.html" %}
+    </div>
+    <div class="col-md-4">
+      {% include "lunch/upcoming_lunches_card.html" %}
+      {% include "lunch/colleagues_card.html" %}
+    </div>
+  </div>
+</main>
+{% include "lunch/update_company_modal.html" %}
+{% include "lunch/view_colleague_modal.html" %}
+{% include "lunch/view_event_modal.html" %}
+{% endblock %}

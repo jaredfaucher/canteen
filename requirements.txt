@@ -1,0 +1,5 @@
+Django==2.0.7
+gunicorn
+django_heroku
+psycopg2-binary
+requests

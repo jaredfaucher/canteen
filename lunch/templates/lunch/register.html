@@ -1,0 +1,134 @@
+{% extends "lunch/base.html" %}
+{% load static %}
+
+{% block title %}
+  Canteen - Register
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'lunch/register.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<main class="container text-center" role="main">
+  <div class="jumbotron">
+    <h1 class="display-4">Canteen</h1>
+    <p class="lead d-none d-md-block">Get lunch with colleagues the easy way</p>
+  </div>
+  <h2>Register</h2>
+  <form class="form-horizontal" role="form" method="POST" action="/register">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="name">{{ form.username.label }}</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            {{ form.username }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="email">{{ form.email.label }}</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-at"></i></span>
+            </div>
+            {{ form.email }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span id="email-error" class="text-danger align-middle" hidden>
+            <i class="fa fa-close">Account exists for this email</i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 field-label-responsive">
+          <label >Name</label>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group has-danger">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            {{ form.first_name }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group has-danger">  
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            {{ form.last_name }}
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">{{ form.password1.label }}</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group has-danger">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-key"></i></span>
+            </div>
+            {{ form.password1 }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">{{ form.password2.label }}</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-check"></i></span>
+            </div>
+            {{ form.password2 }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span id="password-error" class="text-danger align-middle" hidden>
+            <i class="fa fa-close"> Passwords do not match</i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <a href="{% url 'login' %}" class="btn btn-info btn-lg" role="button"><i class="fas fa-sign-in-alt mr-2"></i>Sign in</a>
+        <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-user-plus mr-2"></i>Register</button>
+      </div>
+    </div>
+  </form>
+</main>
+{% endblock %}

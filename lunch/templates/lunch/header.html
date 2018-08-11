@@ -1,0 +1,46 @@
+{% load static %}
+    <header>
+      <input type="hidden" id="curr_user_id" value="{{user.id}}" />
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+          <a href="{% url 'index' %}" class="navbar-brand d-block d-md-none"><img src="{% static 'lunch/3_white.svg' %}" height="36" width="auto"></a>
+          <a href="{% url 'index' %}" class="navbar-brand mr-2 d-none d-md-block"><img src="{% static 'lunch/2_white.svg' %}" height="44" width="auto"></a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <form id="navbar_search_form" class="form-inline" role="search">
+                <div class="input-group ml-md-2">
+                  <input id="search_term" name="search_term" type="text" class="form-control" placeholder="Search">           
+                  <div class="input-group-append d-none d-sm-block">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+          <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fas fa-user mr-1"></i><i class="fas fa-caret-down"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mt-2 mt-md-0 d-block d-md-none">
+                <a class="nav-link" href="{% url 'findColleagues' %}">Find Colleagues</a>
+              </li>
+              <li class="nav-item mt-2 mt-md-0 d-block d-md-none">
+                <button type="button" data-toggle="modal" class="btn btn-link nav-link" data-target="#update_company_modal">Update Company</button>
+              </li>
+              <li class="nav-item mt-2 mt-md-0 d-block d-md-none">
+                <a class="nav-link" href="{% url 'logout' %}">Logout (@{{user.username}})</a>
+              </li>
+              <li class="nav-item dropdown mt-2 mt-md-0 d-none d-md-block">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user mr-1"></i>{{user.username}}</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="nav-link d-none d-md-block" href="{% url 'findColleagues' %}">Find Colleagues</a>
+                  <button type="button" data-toggle="modal" class="btn btn-link nav-link d-none d-md-block" data-target="#update_company_modal">Update Company</button>
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>

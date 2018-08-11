@@ -1,0 +1,14 @@
+      <div id="upcoming_lunches"class="card my-4">
+        <h5 class="card-header">Upcoming Lunches</h5>
+        <div class="card-body">
+          {% if upcoming_lunches %}
+          <div class="list-group">
+          {% for event in upcoming_lunches %}
+          <a id="event_{{event.id}}" href="#" data-toggle="modal" data-target="#view_event_modal" class="list-group-item list-group-item-action event_list_item">{{event.restaurantName}} @ {{event.eventTime|date:"m/d/y P"}}</a>
+          {% endfor %}
+          </div>
+          {% else %}
+          No Upcoming Events.
+          {% endif %}
+        </div>
+      </div>
