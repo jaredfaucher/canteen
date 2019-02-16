@@ -1,4 +1,4 @@
-django==2.1.6
+django==2.1.7
 gunicorn
 django_heroku
 psycopg2-binary
